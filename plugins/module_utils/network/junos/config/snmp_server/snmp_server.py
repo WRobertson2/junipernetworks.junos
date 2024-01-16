@@ -794,27 +794,31 @@ class Snmp_server(ConfigBase):
                                     )
 
                                     if "authentication" in key:
-                                        build_child_xml_node(
-                                            sub_node,
-                                            "authentication-key",
-                                            sub_dict["key"],
-                                        )
-                                        build_child_xml_node(
-                                            sub_node,
-                                            "authentication-password",
-                                            sub_dict["password"],
-                                        )
+                                        try:
+                                            build_child_xml_node(
+                                                sub_node,
+                                                "authentication-key",
+                                                sub_dict["key"],
+                                            )
+                                        except:
+                                            build_child_xml_node(
+                                                sub_node,
+                                                "authentication-password",
+                                                sub_dict["password"],
+                                            )
                                     else:
-                                        build_child_xml_node(
-                                            sub_node,
-                                            "privacy-key",
-                                            sub_dict["key"],
-                                        )
-                                        build_child_xml_node(
-                                            sub_node,
-                                            "privacy-password",
-                                            sub_dict["password"],
-                                        )
+                                        try:
+                                            build_child_xml_node(
+                                                sub_node,
+                                                "privacy-key",
+                                                sub_dict["key"],
+                                            )
+                                        except:
+                                            build_child_xml_node(
+                                                sub_node,
+                                                "privacy-password",
+                                                sub_dict["password"],
+                                            )
                 if "remote_engine" in usm.keys():
                     remotes = usm.get("remote_engine")
 
@@ -861,27 +865,31 @@ class Snmp_server(ConfigBase):
                                         )
 
                                         if "authentication" in key:
-                                            build_child_xml_node(
-                                                sub_node,
-                                                "authentication-key",
-                                                sub_dict["key"],
-                                            )
-                                            build_child_xml_node(
-                                                sub_node,
-                                                "authentication-password",
-                                                sub_dict["password"],
-                                            )
+                                            try:
+                                                build_child_xml_node(
+                                                    sub_node,
+                                                    "authentication-key",
+                                                    sub_dict["key"],
+                                                )
+                                            except:
+                                                build_child_xml_node(
+                                                    sub_node,
+                                                    "authentication-password",
+                                                    sub_dict["password"],
+                                                )
                                         else:
-                                            build_child_xml_node(
-                                                sub_node,
-                                                "privacy-key",
-                                                sub_dict["key"],
-                                            )
-                                            build_child_xml_node(
-                                                sub_node,
-                                                "privacy-password",
-                                                sub_dict["password"],
-                                            )
+                                            try:
+                                                build_child_xml_node(
+                                                    sub_node,
+                                                    "privacy-key",
+                                                    sub_dict["key"],
+                                                )
+                                            except:
+                                                build_child_xml_node(
+                                                    sub_node,
+                                                    "privacy-password",
+                                                    sub_dict["password"],
+                                                )
 
     def _state_deleted(self, want, have):
         """The command generator when state is deleted
